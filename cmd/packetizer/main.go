@@ -323,9 +323,12 @@ func main() {
 				continue
 			}
 
-			nfo := &PackageInfo{File: file, Pkg: pkg, CommentMap: ast.NewCommentMap(cfg.Fset, file, file.Comments), Name: pkg.Name, Path: pf}
-			analyzeFile(nfo)
-			infos = append(infos, nfo)
+			info := &PackageInfo{File: file, Pkg: pkg, CommentMap: ast.NewCommentMap(cfg.Fset, file, file.Comments), Name: pkg.Name, Path: pf}
+			analyzeFile(info)
+			if info.Structs == nil || len(info.Structs) == 0 {
+				continue
+			}
+			infos = append(infos, info)
 		}
 	}
 
