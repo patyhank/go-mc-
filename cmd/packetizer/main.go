@@ -121,6 +121,9 @@ func analyzeFile(pkgInfo *PackageInfo) {
 					}
 
 					mcTag := parseTag(fieldTagValue(field))
+					if mcTag == "-" {
+						continue
+					}
 					obj := pkgInfo.Pkg.TypesInfo.Defs[name]
 					if obj != nil {
 						t := obj.Type()
