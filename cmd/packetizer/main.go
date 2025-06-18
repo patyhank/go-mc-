@@ -166,7 +166,6 @@ func analyzeFile(pkgInfo *PackageInfo) {
 										fi.IsFunc = true
 										fi.Type = mcTag
 										t = sig.Results().At(0).Type()
-										fmt.Println(mcTag)
 									}
 								}
 							}
